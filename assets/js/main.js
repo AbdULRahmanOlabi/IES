@@ -9,6 +9,8 @@
     const selectHeader = document.querySelector("#header");
     const logo = document.querySelector(".logo img");
 
+    if (!selectHeader || !logo) return;
+
     if (
       !selectHeader.classList.contains("scroll-up-sticky") &&
       !selectHeader.classList.contains("sticky-top") &&
@@ -16,15 +18,23 @@
     )
       return;
 
+    // Determine the correct base path for the logo
+    const isPage2 = window.location.pathname.includes("Ar");
+    const basePath = isPage2 ? "../assets/img/" : "assets/img/";
+
+    const defaultLogo = basePath + "logo.png";
+    const scrolledLogo = basePath + "logo-scrolled.png";
+
     if (window.scrollY > 100) {
       selectBody.classList.add("scrolled");
-      logo.src = "assets/img/logo-scrolled.png"; // Change to your scrolled logo
+      logo.src = scrolledLogo;
     } else {
       selectBody.classList.remove("scrolled");
-      logo.src = "assets/img/logo.png"; // Revert to original logo
+      logo.src = defaultLogo;
     }
   }
 
+  // Apply function on scroll and page load
   document.addEventListener("scroll", toggleScrolled);
   window.addEventListener("load", toggleScrolled);
 
