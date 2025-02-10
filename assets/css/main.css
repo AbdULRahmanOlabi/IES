@@ -1808,6 +1808,13 @@ html[lang="ar"] .get-started .content h3:after {
   }
 }
 
+html[lang="ar"] .about ul i {
+  font-size: 1.25rem;
+  margin-left: 0.5rem;
+  line-height: 1.2;
+  color: var(--accent-color);
+}
+
 /*--------------------------------------------------------------
 # Stats Counter Section
 --------------------------------------------------------------*/
