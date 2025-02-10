@@ -1788,6 +1788,26 @@ html[lang="ar"] .get-started .content h3:after {
   border-radius: 4px;
 }
 
+/* Arabic - About Section
+------------------------------*/
+@media (min-width: 992px) {
+  html[lang="ar"] .about .about-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: auto;
+    min-height: 600px;
+  }
+}
+
+@media (min-width: 991px) {
+  html[lang="ar"] .about .our-story {
+    padding-left: 35%;
+    padding-right: 5%;
+    border-radius: 4px;
+  }
+}
+
 /*--------------------------------------------------------------
 # Stats Counter Section
 --------------------------------------------------------------*/
