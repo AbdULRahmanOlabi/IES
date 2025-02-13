@@ -43,12 +43,14 @@
    */
   const mobileNavToggleBtn = document.querySelector(".mobile-nav-toggle");
 
-  function mobileNavToogle() {
-    document.querySelector("body").classList.toggle("mobile-nav-active");
-    mobileNavToggleBtn.classList.toggle("bi-list");
-    mobileNavToggleBtn.classList.toggle("bi-x");
+  if (mobileNavToggleBtn) {
+    mobileNavToggleBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      document.querySelector("body").classList.toggle("mobile-nav-active");
+      this.classList.toggle("bi-list");
+      this.classList.toggle("bi-x");
+    });
   }
-  mobileNavToggleBtn.addEventListener("click", mobileNavToogle);
 
   /**
    * Hide mobile nav on same-page/hash links
@@ -167,6 +169,30 @@
           false
         );
       });
+  });
+
+  /**
+   * Dropdown Mobile
+   */
+  document.addEventListener("DOMContentLoaded", function () {
+    const dropdownToggle = document.querySelector(".dropdown > a");
+    const dropdownMenu = document.querySelector(".dropdown > ul");
+
+    if (dropdownToggle && dropdownMenu) {
+      dropdownToggle.addEventListener("click", function (e) {
+        e.preventDefault();
+        dropdownMenu.classList.toggle("dropdown-active");
+      });
+
+      document.addEventListener("click", function (event) {
+        if (
+          !dropdownToggle.contains(event.target) &&
+          !dropdownMenu.contains(event.target)
+        ) {
+          dropdownMenu.classList.remove("dropdown-active");
+        }
+      });
+    }
   });
 
   /**
